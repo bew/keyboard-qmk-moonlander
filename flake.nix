@@ -17,8 +17,8 @@
 
     zsa-qmk-repo = pkgs.fetchgit {
       url = "https://github.com/zsa/qmk_firmware";
-      rev = "firmware21";
-      sha256 = "sha256-9Gh95yRlcmpZKlXc7Hzgm4VRmpmcfQaSbZFPi2i/veo=";
+      branchName = "firmware21";
+      hash = "sha256-LqfGwz2BtM17v8Uk8J9AYfrEXhNtf1FoVMnACRWsnUw==";
       fetchSubmodules = true;
     };
 
@@ -30,7 +30,7 @@
         (pkgs.fetchpatch {
           name = "zsa-qmk-repo--nix-requirement-fix.patch";
           url = "https://github.com/qmk/qmk_firmware/commit/650be92cf96440920ebf1079c11f2f36c4a9edc1.patch";
-          sha256 = "sha256-YcKsmZwUJS3Czt7pTjdlK08EXWcihTbVRfDkuCMK2Cg=";
+          hash = "sha256-YcKsmZwUJS3Czt7pTjdlK08EXWcihTbVRfDkuCMK2Cg=";
         })
       ];
       phases = [ "unpackPhase" "patchPhase" "installPhase" ];
