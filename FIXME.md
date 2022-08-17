@@ -1,0 +1,32 @@
+
+
+=-=-=> Will need a way to auto-add some code in the source file (patch files? append arbitrary content?)
+
+### CAPS Word for french letter 'M'
+
+The french M key exits CAPS Word mode when it's active
+(because the french M is the ',' key on english layout, and not considered a letter)
+=> Configure which key is 'word breaking' using user function `caps_word_press_user`
+Ref: https://docs.qmk.fm/#/feature_caps_word?id=configure-which-keys-are-word-breaking
+
+
+### Order-agnostic layer stacking for symbols layer & numbers layer
+
+When I want to write numbers then immediatly symbols, or symbols then numbers
+(like '#34' or 'foo[23]' or vim commands like '3}', '34@@', '=4}'),
+it's hard to be fluid even when using different hands to enable the 2nd needed layer,
+because:
+* the number layer overrides the symbold layer if it was enabled first,
+* BUT the symbols layer DOES NOT override the number layer when it is enabled first..
+
+=> Need to change what the layer change keys do when both keys for layers for symbols & numbers are pressed at the same time. The last pressed layer change key should take precedence.
+
+Refs (and examples):
+- Change behavior of keys: https://docs.qmk.fm/#/custom_quantum_functions?id=programming-the-behavior-of-any-keycode
+- Layer action functions: https://docs.qmk.fm/#/feature_layers?id=functions
+- How keys are actually processed in QMK: https://docs.qmk.fm/#/understanding_qmk?id=process-record
+
+NOTE: `keyrecord_t` seems have a 'time' field in `record.event.time`. (WRONG: it's the current
+(`keyevent_t` is defined in `quantum/keyboard.h`, `keyrecord_t` is defined in `quantum/action.h`)
+!!! That 'time' field is NOT the time since pressed, BUT current value of `timer_read()` just after matrix scan it seems.
+    (see `TICK_EVENT` then `MAKE_KEYEVENT` macro in `quantum/keyboard.h`)
