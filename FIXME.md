@@ -43,3 +43,15 @@ quickely get THE ONE I LIKE or another :)
 Refs:
 - Keycodes around RGB lighting: https://docs.qmk.fm/#/feature_rgb_matrix?id=keycodes
 - Functions available to cycle: https://docs.qmk.fm/#/feature_rgb_matrix?id=change-effect-mode
+
+
+### Custom top led layer indicator (and lower color intensity?)
+
+Currently on top of the keyboard, there are 3 LED (single colored, don't think it can be changed)
+that light up when activating the first few layers.
+
+I'd like to have different pattern on left/right half (currently both are always the same)
+I'd like to control them!
+
+Maybe ref? https://docs.qmk.fm/#/feature_rgb_matrix?id=indicators
+(not sure what controls those LEDs..)
