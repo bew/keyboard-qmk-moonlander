@@ -30,3 +30,16 @@ NOTE: `keyrecord_t` seems have a 'time' field in `record.event.time`. (WRONG: it
 (`keyevent_t` is defined in `quantum/keyboard.h`, `keyrecord_t` is defined in `quantum/action.h`)
 !!! That 'time' field is NOT the time since pressed, BUT current value of `timer_read()` just after matrix scan it seems.
     (see `TICK_EVENT` then `MAKE_KEYEVENT` macro in `quantum/keyboard.h`)
+
+
+### Keys to activate specific RGB animations
+
+There are _a lot_ of builtin animations, but the only way to see them is to cycle them one by one
+and hope to not miss the one I'm looking for.
+
+I'd like next/previous cycle keys, + dedicated keys for selecting some effects I like, so I can
+quickely get THE ONE I LIKE or another :)
+
+Refs:
+- Keycodes around RGB lighting: https://docs.qmk.fm/#/feature_rgb_matrix?id=keycodes
+- Functions available to cycle: https://docs.qmk.fm/#/feature_rgb_matrix?id=change-effect-mode
