@@ -85,7 +85,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [1] = LAYOUT_moonlander(
     TO(0),          FR_1,           FR_2,           FR_3,           FR_4,           FR_5,           KC_TRANSPARENT,                                 KC_TRANSPARENT, FR_6,           FR_7,           FR_8,           FR_9,           FR_0,           KC_TRANSPARENT, 
-    KC_TRANSPARENT, FR_SLSH,        LSFT(FR_SUP2),  FR_APOS,        FR_LCBR,        FR_RCBR,        KC_TRANSPARENT,                                 KC_TRANSPARENT, FR_AT,          FR_PIPE,        FR_GRV,         RALT(FR_CCED),  FR_DLR,         FR_BSLS,        
+    KC_TRANSPARENT, FR_SLSH,        LSFT(FR_SUP2),  FR_APOS,        FR_LCBR,        FR_RCBR,        KC_TRANSPARENT,                                 KC_TRANSPARENT, FR_PIPE,        FR_AT,          FR_GRV,         RALT(FR_CCED),  FR_DLR,         FR_BSLS,        
     KC_TRANSPARENT, FR_SUP2,        FR_HASH,        FR_DQUO,        FR_LPRN,        FR_RPRN,        KC_TRANSPARENT,                                                                 KC_TRANSPARENT, FR_EQL,         FR_MINS,        FR_UNDS,        FR_PLUS,        FR_ASTR,        KC_TRANSPARENT, 
     KC_TRANSPARENT, FR_LESS,        FR_GRTR,        FR_AMP,         FR_LBRC,        FR_RBRC,                                        FR_PERC,        FR_QUES,        FR_DOT,         FR_SLSH,        KC_TRANSPARENT, KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
