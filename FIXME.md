@@ -10,7 +10,7 @@ The french M key exits CAPS Word mode when it's active
 Ref: https://docs.qmk.fm/#/feature_caps_word?id=configure-which-keys-are-word-breaking
 
 
-### Order-agnostic layer stacking for symbols layer & numbers layer
+### Order-agnostic layer stacking for symbols/numbers layers
 
 When I want to write numbers then immediatly symbols, or symbols then numbers
 (like '#34' or 'foo[23]' or vim commands like '3}', '34@@', '=4}'),
@@ -30,6 +30,22 @@ NOTE: `keyrecord_t` seems have a 'time' field in `record.event.time`. (WRONG: it
 (`keyevent_t` is defined in `quantum/keyboard.h`, `keyrecord_t` is defined in `quantum/action.h`)
 !!! That 'time' field is NOT the time since pressed, BUT current value of `timer_read()` just after matrix scan it seems.
     (see `TICK_EVENT` then `MAKE_KEYEVENT` macro in `quantum/keyboard.h`)
+
+
+### Attach macros to 'on-held' event, for easy pairs of (), {}, [] in any programs
+
+I'd like to have easy keys to get auto-pairs of `()`, `{}`, `[]` in any programs, so basically use
+macros that send `(`, `)`, then the `Left` arrow key, to put the cursor between the parenthesis.
+
+I'm thinking to put these macros on all `)`, `}`, `]` keys, for the 'on-held' event.
+Since I don't usually use these keys while coding (as I already have auto-pairs in shell & editor),
+I don't think I'll get annoyed by the small delay induced by having an 'on-held' event :)
+
+One problem though: the ZSA configurator interface does NOT allow to set macros for 'on-held' event,
+it's only available for the 'on-tap' event..
+
+=> Alternative: put the mappings on another layer
+(maybe.. a macro layer accessed through the big red button?)
 
 
 ### Keys to activate specific RGB animations
