@@ -15,12 +15,15 @@
   let
     pkgs = import nixpkgs { system = "x86_64-linux"; };
 
-    zsa-qmk-repo = pkgs.fetchgit {
+    zsa-qmk-repo = pkgs.fetchgit ({
       url = "https://github.com/zsa/qmk_firmware";
       branchName = "firmware21";
-      hash = "sha256-LqfGwz2BtM17v8Uk8J9AYfrEXhNtf1FoVMnACRWsnUw==";
       fetchSubmodules = true;
-    };
+    } // {
+      # Fields to change on update!
+      rev = "b6657f6a7b8cf244eeac546c334377f5430e7b0c";
+      hash = "sha256-zrnOHG1cICXK/p01wGzDGikTPU5k5mYlEPJpnHvxsKU=";
+    });
 
     # is there a better way to patch a repo?
     zsa-qmk-repo--patched = pkgs.stdenv.mkDerivation {
