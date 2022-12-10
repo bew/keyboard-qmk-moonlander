@@ -9,9 +9,11 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-22.05";
+
+    devshell.url = "github:numtide/devshell";
   };
 
-  outputs = { self, nixpkgs }:
+  outputs = { self, nixpkgs, devshell }:
   let
     pkgs = import nixpkgs { system = "x86_64-linux"; };
 
@@ -133,5 +135,25 @@
     };
 
     packages.avr.default = self.packages.avr.moonlander-bew0-firmware;
+
+    # devShells.x86_64-linux.default
+    devShells = let
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
+      bins.wally-cli = "${pkgs.wally-cli}/bin/wally-cli";
+    in {
+      ${system}.default = (import devshell { inherit system; }).mkShell {
+        name = "zsa-dev-shell";
+        commands = [
+          {
+            name = "flash-moonlander-bew0";
+            command = ''
+              # We build have single keyboard here, so glob will return a single result
+              ${bins.wally-cli} ${self.packages.avr.moonlander-bew0-firmware}/*.bin
+            '';
+          }
+        ];
+      };
+    };
   };
 }
